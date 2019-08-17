@@ -2,7 +2,7 @@ stages:
   - build
 
 variables:
-  CONTAINER_IMAGE: registery.git.zoodroom.com/basket/fertilizer
+  CONTAINER_IMAGE: registry.git.zoodroom.com/basket/fertilizer
 
 build:
   stage: build
