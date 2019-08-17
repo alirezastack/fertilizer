@@ -1,0 +1,19 @@
+stages:
+  - build
+
+variables:
+  CONTAINER_IMAGE: registery.git.zoodroom.com/basket/fertilizer
+
+build:
+  stage: build
+  script:
+    - docker build --tag $CONTAINER_IMAGE:latest --tag $CONTAINER_IMAGE:$CI_BUILD_TAG .
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.git.zoodroom.com
+    - docker push $CONTAINER_IMAGE:$CI_BUILD_TAG
+    - docker push $CONTAINER_IMAGE:latest
+  only:
+    - tags
+  tags:
+    - docker
+    - shell
+  
