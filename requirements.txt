@@ -13,4 +13,4 @@ ujson==1.35
 cement==3.0.2
 pyyaml
 colorlog
-redis==3.2.1
+redis==4.4.4
